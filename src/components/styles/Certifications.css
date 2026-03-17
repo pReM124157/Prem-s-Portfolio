@@ -1,0 +1,291 @@
+/* ── Certifications Section ── */
+.certifications-section {
+  position: relative;
+  z-index: 1;
+  background-color: var(--backgroundColor);
+  padding: 80px 0;
+  /* FIX: contain horizontal overflow at section level */
+  overflow: hidden;
+}
+
+.certifications-section h2 {
+  font-size: 70px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.certifications-section h2 > span {
+  color: var(--accentColor);
+}
+
+.certifications-container {
+  margin: auto;
+}
+
+/* ── Carousel ── */
+.certifications-section .carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.certifications-section .carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  border-top: 1px solid #363636;
+  border-bottom: 1px solid #363636;
+}
+
+.certifications-section .carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.certifications-section .carousel-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.certifications-section .carousel-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.certifications-section .carousel-info {
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.certifications-section .carousel-number h3 {
+  font-size: 60px;
+  line-height: 1;
+  margin: 0;
+  font-weight: 600;
+  opacity: 0.3;
+}
+
+.certifications-section .carousel-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.certifications-section .carousel-details h4 {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.certifications-section .carousel-category {
+  font-weight: 200;
+  color: #adacac;
+  margin: 0;
+  font-size: 16px;
+}
+
+.certifications-section .carousel-tools {
+  margin-top: 16px;
+}
+
+.certifications-section .carousel-tools .tools-label {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.certifications-section .carousel-tools p {
+  font-weight: 200;
+  color: #adacac;
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+
+.certifications-section .carousel-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ── Navigation Arrows ── */
+.certifications-section .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #eae5ec;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.certifications-section .carousel-arrow:hover {
+  background: rgba(94, 234, 212, 0.15);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  box-shadow: 0 0 20px rgba(94, 234, 212, 0.15);
+}
+
+.certifications-section .carousel-arrow-left {
+  left: -70px;
+}
+
+.certifications-section .carousel-arrow-right {
+  right: -70px;
+}
+
+/* ── Dot Indicators ── */
+.certifications-section .carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.certifications-section .carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.certifications-section .carousel-dot:hover {
+  border-color: var(--accentColor);
+  background: rgba(94, 234, 212, 0.2);
+}
+
+.certifications-section .carousel-dot-active {
+  background: var(--accentColor);
+  border-color: var(--accentColor);
+  box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
+}
+
+/* ── Image ── */
+.certifications-section .work-image {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.certifications-section .work-image-in {
+  width: 100%;
+}
+
+.certifications-section .work-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 1600px) {
+  .certifications-section .carousel-arrow-left {
+    left: -60px;
+  }
+  .certifications-section .carousel-arrow-right {
+    right: -60px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .certifications-section h2 {
+    font-size: 50px;
+  }
+  .certifications-section .carousel-details h4 {
+    font-size: 22px;
+  }
+  .certifications-section .carousel-number h3 {
+    font-size: 45px;
+  }
+  .certifications-section .carousel-content {
+    gap: 40px;
+  }
+  .certifications-section .carousel-arrow-left {
+    left: 10px;
+  }
+  .certifications-section .carousel-arrow-right {
+    right: 10px;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .certifications-section .carousel-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .certifications-section .carousel-info {
+    width: 100%;
+  }
+  .certifications-section .carousel-image-wrapper {
+    width: 100%;
+  }
+  .certifications-section .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .certifications-section .carousel-arrow-left {
+    left: 10px;
+  }
+  .certifications-section .carousel-arrow-right {
+    right: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .certifications-section {
+    padding: 50px 0;
+  }
+  .certifications-section h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+  .certifications-section .carousel-number h3 {
+    font-size: 35px;
+  }
+  .certifications-section .carousel-details h4 {
+    font-size: 20px;
+  }
+  .certifications-section .carousel-content {
+    gap: 20px;
+  }
+  .certifications-section .carousel-slide {
+    padding: 30px 0;
+  }
+  .certifications-section .work-image img {
+    max-height: 250px;
+  }
+}
