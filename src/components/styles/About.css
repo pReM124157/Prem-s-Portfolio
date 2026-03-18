@@ -24,15 +24,19 @@
 }
 
 .about-me p {
-  font-size: 33px;
+  font-size: 19.8px;
   font-weight: 600;
-  line-height: 36px;
+  line-height: 28.6px;
   letter-spacing: 1px;
 }
 
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;
+  }
+  .about-me p {
+    font-size: 33px;
+    line-height: 36px;
   }
 }
 @media only screen and (min-width: 768px) {

@@ -4,7 +4,6 @@
   z-index: 1;
   background-color: var(--backgroundColor);
   padding: 80px 0;
-  /* FIX: contain horizontal overflow at section level */
   overflow: hidden;
 }
 
@@ -96,6 +95,23 @@
   color: #adacac;
   margin: 0;
   font-size: 16px;
+}
+
+.certifications-section .carousel-issuer {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin: 2px 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.certifications-section .carousel-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 .certifications-section .carousel-tools {

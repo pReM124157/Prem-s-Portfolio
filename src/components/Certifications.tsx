@@ -5,26 +5,26 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const certifications = [
   {
-    title: "AWS Certified Solutions Architect",
-    category: "Cloud Computing",
-    tools: "AWS S3, EC2, Lambda, DynamoDB",
-    image: "/images/Solidx.png",
-    link: "https://github.com/pReM124157",
-  },
-  {
-    title: "Google Professional Cloud Architect",
-    category: "Cloud Architecture",
-    tools: "GCP, Kubernetes, BigQuery, IAM",
-    image: "/images/radix.png",
-    link: "https://github.com/pReM124157",
-  },
-  {
-    title: "Meta Front-End Developer",
+    title: "The Complete Full-Stack Web Development Bootcamp",
     category: "Web Development",
-    tools: "React, CSS, UX Design, HTML5",
-    image: "/images/bond.png",
-    link: "https://github.com/pReM124157",
+    tools: "HTML, CSS, JavaScript, React, Node.js, MongoDB, PostgreSQL",
+    image: "/images/udemy-fullstack.png",
+    link: "https://ude.my/UC-cd85df4d-f8db-4c52-8203-1c9dc53d8afe",
+    issuer: "Udemy",
+    date: "June 19, 2025",
+    hours: "61.5 total hours",
   },
+  {
+    title: "Database Fundamentals: Getting Started with SQL",
+    category: "Database",
+    tools: "SQL, Database Design, Queries, Data Management",
+    image: "/images/infosys-sql.png",
+    link: "https://verify.onwingspan.com",
+    issuer: "Infosys Springboard",
+    date: "February 6, 2026",
+    hours: "",
+  },
+ 
 ];
 
 const Certifications = () => {
@@ -61,7 +61,6 @@ const Certifications = () => {
         </h2>
 
         <div className="carousel-wrapper">
-          {/* Navigation Arrows */}
           <button
             className="carousel-arrow carousel-arrow-left"
             onClick={goToPrev}
@@ -79,7 +78,6 @@ const Certifications = () => {
             <MdArrowForward />
           </button>
 
-          {/* Slides */}
           <div className="carousel-track-container">
             <div
               className="carousel-track"
@@ -96,9 +94,16 @@ const Certifications = () => {
                       </div>
                       <div className="carousel-details">
                         <h4>{cert.title}</h4>
-                        <p className="carousel-category">
-                          {cert.category}
-                        </p>
+                        <p className="carousel-category">{cert.category}</p>
+                        {cert.issuer && (
+                          <p className="carousel-issuer">{cert.issuer}</p>
+                        )}
+                        {(cert.date || cert.hours) && (
+                          <div className="carousel-meta">
+                            {cert.date && <span>Date: <strong>{cert.date}</strong></span>}
+                            {cert.hours && <span>Length: <strong>{cert.hours}</strong></span>}
+                          </div>
+                        )}
                         <div className="carousel-tools">
                           <span className="tools-label">AUTHORITY & HIGHLIGHTS</span>
                           <p>{cert.tools}</p>
@@ -118,7 +123,6 @@ const Certifications = () => {
             </div>
           </div>
 
-          {/* Dot Indicators */}
           <div className="carousel-dots">
             {certifications.map((_, index) => (
               <button
