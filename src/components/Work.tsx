@@ -1,42 +1,21 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
-    link: "https://github.com/pReM124157",
+    title: "SourceWithAI",
+    category: "AI-Powered Global Sourcing Platform",
+    tools: "React.js, Node.js, AI Integration, REST APIs, MongoDB",
+    image: "/images/sourcewithai.png",
+    link: "https://sourcewithai.com",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
-    link: "https://github.com/pReM124157",
-  },
-  {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
-    link: "https://github.com/pReM124157",
-  },
-  {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
-    link: "https://github.com/pReM124157",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "College Projects",
+    category: "IoT & Smart Systems",
+    tools: "InfraLink · Smart Cab System · Smart IoT Classroom · Smart Agriculture System",
+    image: "/images/placeholder.webp",
     link: "https://github.com/pReM124157",
   },
 ];
@@ -44,6 +23,8 @@ const projects = [
 const Work = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -67,17 +48,38 @@ const Work = () => {
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    const swipeThreshold = 50;
+    const difference = touchStartX.current - touchEndX.current;
+    if (Math.abs(difference) > swipeThreshold) {
+      if (difference > 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+  };
+
   return (
-    <div className="work-section" id="work">
+    <div
+      className="work-section"
+      id="work"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="work-container section-container">
         <h2>
           My <span>Work</span>
         </h2>
 
         <div className="carousel-wrapper">
-          {/* Navigation Arrows */}
           <button
-            className="carousel-arrow carousel-arrow-left"
+            className="carousel-arrow carousel-arrow-left desktop-only"
             onClick={goToPrev}
             aria-label="Previous project"
             data-cursor="disable"
@@ -85,7 +87,7 @@ const Work = () => {
             <MdArrowBack />
           </button>
           <button
-            className="carousel-arrow carousel-arrow-right"
+            className="carousel-arrow carousel-arrow-right desktop-only"
             onClick={goToNext}
             aria-label="Next project"
             data-cursor="disable"
@@ -93,7 +95,6 @@ const Work = () => {
             <MdArrowForward />
           </button>
 
-          {/* Slides */}
           <div className="carousel-track-container">
             <div
               className="carousel-track"
@@ -120,11 +121,18 @@ const Work = () => {
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
-                      <WorkImage
-                        image={project.image}
-                        alt={project.title}
-                        link={project.link}
-                      />
+                      {index === 1 ? (
+                        <div className="carousel-info-text">
+                          <h3>See GitHub and LinkedIn for more information</h3>
+                          <p>Check out my full project portfolio on GitHub and professional experience on LinkedIn</p>
+                        </div>
+                      ) : (
+                        <WorkImage
+                          image={project.image}
+                          alt={project.title}
+                          link={project.link}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -132,13 +140,13 @@ const Work = () => {
             </div>
           </div>
 
-          {/* Dot Indicators */}
           <div className="carousel-dots">
             {projects.map((_, index) => (
               <button
                 key={index}
-                className={`carousel-dot ${index === currentIndex ? "carousel-dot-active" : ""
-                  }`}
+                className={`carousel-dot ${
+                  index === currentIndex ? "carousel-dot-active" : ""
+                }`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to project ${index + 1}`}
                 data-cursor="disable"
