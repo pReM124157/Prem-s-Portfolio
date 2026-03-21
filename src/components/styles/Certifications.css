@@ -271,17 +271,21 @@
 
 @media only screen and (max-width: 1025px) {
   .certifications-section .carousel-content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 30px;
   }
   .certifications-section .carousel-info {
     width: 100%;
   }
   .certifications-section .carousel-image-wrapper {
+    flex: 1;
     width: 100%;
     max-width: 100%;
     max-height: none;
     margin-left: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    height: auto;
   }
   .certifications-section .carousel-arrow {
     width: 40px;
@@ -293,12 +297,6 @@
   }
   .certifications-section .carousel-arrow-right {
     right: 10px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .certifications-section .carousel-arrow {
-    display: none;
   }
 }
 
@@ -323,11 +321,19 @@
     padding: 30px 0;
   }
   .certifications-section .work-image img {
-    max-height: 250px;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
+  .certifications-section .carousel-arrow {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 599px) {
   .certifications-section {
     padding: 40px 0;
   }
@@ -335,43 +341,46 @@
     font-size: 32px;
     margin-bottom: 24px;
   }
-  /* Break the entire carousel out to viewport edges */
+
+  /* Remove all negative margin hacks — match Work section exactly */
   .certifications-section .carousel-wrapper {
-    margin-left: -15px;
-    margin-right: -15px;
-    width: calc(100% + 30px);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
-  /* Track becomes a full-width rounded card — its overflow:hidden clips the image corners */
   .certifications-section .carousel-track-container {
-    border-radius: 16px;
-    border-top: none;
-    border-bottom: none;
+    border-radius: 0;
+    border-top: 1px solid #363636;
+    border-bottom: 1px solid #363636;
     touch-action: pan-y;
   }
   .certifications-section .carousel-slide {
-    padding: 0 15px 24px;
+    padding: 24px 0;
   }
   .certifications-section .carousel-content {
-    gap: 0;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 20px;
   }
   .certifications-section .carousel-info {
     width: 100%;
-    padding-top: 16px;
+    flex: unset;
+    margin-top: 16px;
   }
   .certifications-section .carousel-category {
     font-size: 14px;
   }
-  /* Image fills full track width — track's border-radius clips the corners */
+
+  /* Image wrapper — clean, matches Work section */
   .certifications-section .carousel-image-wrapper {
-    width: calc(100% + 30px);
-    margin-left: -15px;
-    margin-right: -15px;
-    max-width: none;
+    width: 100%;
+    flex: unset;
+    max-width: 100%;
     max-height: none;
-    border-radius: 0;
-    overflow: visible;
-    order: -1;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    order: unset;
   }
   .certifications-section .work-image {
     width: 100%;
@@ -381,7 +390,7 @@
   }
   .certifications-section .work-image-in {
     border-radius: 0;
-    overflow: visible;
+    overflow: hidden;
     display: block;
   }
   .certifications-section .work-image img {
@@ -390,8 +399,13 @@
     height: auto;
     max-height: none;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 0;
-    transform: none;
+  }
+  .certifications-section .carousel-number h3 {
+    font-size: 30px;
+  }
+  .certifications-section .carousel-details h4 {
+    font-size: 18px;
   }
 }

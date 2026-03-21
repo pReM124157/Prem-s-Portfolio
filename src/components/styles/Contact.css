@@ -113,4 +113,15 @@ a.contact-social {
   .contact-container {
     width: calc(100% - 25px);
   }
+
+  /* Make contact-box shrink to content so links don't stretch */
+  .contact-box {
+    align-items: flex-start;
+  }
+
+  /* Underline ends exactly where the word ends */
+  a.contact-social {
+    display: table;
+    border-bottom: 1px solid #ccc;
+  }
 }
