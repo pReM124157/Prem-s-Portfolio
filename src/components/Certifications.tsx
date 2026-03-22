@@ -5,14 +5,24 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const certifications = [
   {
-    title: "The Complete Full-Stack Web Development Bootcamp",
-    category: "Web Development",
-    tools: "HTML, CSS, JavaScript, React, Node.js, MongoDB, PostgreSQL",
-    image: "/images/udemy-fullstack.png",
-    link: "https://ude.my/UC-cd85df4d-f8db-4c52-8203-1c9dc53d8afe",
-    issuer: "Udemy",
-    date: "June 19, 2025",
-    hours: "61.5 total hours",
+    title: "Claude Code in Action",
+    category: "Artificial Intelligence",
+    tools: "Prompt Engineering, Artificial Intelligence (AI), Claude Code",
+    image: "/images/anthropic-claudecode.png",
+    link: "https://www.linkedin.com/learning/certificates/k49cohuczfxu",
+    issuer: "Anthropic",
+    date: "March 2026",
+    hours: "",
+  },
+  {
+    title: "Certificate of Completion: Teaching the AI Fluency Framework",
+    category: "Artificial Intelligence",
+    tools: "AI Fluency, Prompt Engineering, Artificial Intelligence (AI)",
+    image: "/images/anthropic-aifluency.png",
+    link: "https://www.linkedin.com/learning/certificates/hkh5f5ms5d3t",
+    issuer: "Anthropic",
+    date: "March 2026",
+    hours: "",
   },
   {
     title: "Database Fundamentals: Getting Started with SQL",
@@ -24,7 +34,16 @@ const certifications = [
     date: "February 6, 2026",
     hours: "",
   },
- 
+  {
+    title: "The Complete Full-Stack Web Development Bootcamp",
+    category: "Web Development",
+    tools: "HTML, CSS, JavaScript, React, Node.js, MongoDB, PostgreSQL",
+    image: "/images/udemy-fullstack.png",
+    link: "https://ude.my/UC-cd85df4d-f8db-4c52-8203-1c9dc53d8afe",
+    issuer: "Udemy",
+    date: "June 19, 2025",
+    hours: "61.5 total hours",
+  },
 ];
 
 const Certifications = () => {

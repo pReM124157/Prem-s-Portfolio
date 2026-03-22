@@ -341,8 +341,6 @@
     font-size: 32px;
     margin-bottom: 24px;
   }
-
-  /* Remove all negative margin hacks — match Work section exactly */
   .certifications-section .carousel-wrapper {
     margin-left: 0;
     margin-right: 0;
@@ -369,8 +367,6 @@
   .certifications-section .carousel-category {
     font-size: 14px;
   }
-
-  /* Image wrapper — clean, matches Work section */
   .certifications-section .carousel-image-wrapper {
     width: 100%;
     flex: unset;
